@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block title %}Правила и условия{% endblock %}{% block content %}
+<header class="page-heading"><span class="eyebrow">УСЛОВИЯ УЧАСТИЯ</span><h1>Правила турнира</h1><p>{{ tournament.title }} · версия {{ rules_version|slice:':10' }}</p></header>
+{% if not tournament.terms_confirmed %}<div class="notice"><p>Условия предварительные. После их изменения потребуется новое подтверждение.</p></div>{% endif %}
+<section class="panel"><h2>Условия участия</h2><dl class="detail-list">
+<div><dt>Игра</dt><dd>{{ tournament.game }}</dd></div><div><dt>Дата</dt><dd>{{ tournament.event_date|date:'d.m.Y' }}{% if tournament.starts_at %} · {{ tournament.starts_at|date:'H:i' }}{% endif %} · {{ tournament.timezone_name }}</dd></div>
+<div><dt>Регистрация до</dt><dd>{{ tournament.end_registration|date:'d.m.Y H:i'|default:'Уточняется' }}</dd></div>
+<div><dt>Состав</dt><dd>{{ tournament.roster_size }} + {{ tournament.reserve_limit|default_if_none:'уточняется' }} запасных</dd></div>
+<div><dt>Количество команд</dt><dd>{{ tournament.max_teams }}</dd></div>
+<div><dt>Взнос с участника</dt><dd>2 200 ₸{% if demo_mode %} · тестовый, без перевода{% endif %}</dd></div>
+<div><dt>Запасные</dt><dd>{{ tournament.reserves_pay|yesno:'Взнос 2 200 ₸,Без взноса,Уточняется' }}</dd></div>
+<div><dt>Сетка</dt><dd>Double Elimination · BO{{ tournament.best_of|default_if_none:'?' }} · финал BO{{ tournament.final_best_of|default_if_none:'?' }} · повторный финал: {{ tournament.grand_final_reset|yesno:'да,нет,уточняется' }}</dd></div>
+<div><dt>Призовой фонд</dt><dd>{{ tournament.prize_pool|default_if_none:'Уточняется' }} ₸</dd></div></dl><p class="muted">{{ tournament.prize_note }}</p></section>
+<section class="panel section"><h2>Регламент</h2><div class="break-word">{{ tournament.rules|linebreaks }}</div></section>
+<section class="panel section">{% if rules_accepted %}<p>Вы уже приняли эту версию. Дата и текст сохранены в журнале согласий.</p><a class="button" href="{{ return_to }}">Вернуться в кабинет</a>{% elif user.is_authenticated %}<form method="post">{% csrf_token %}<input type="hidden" name="next" value="{{ return_to }}">{% include 'arena/partials/fields.html' %}<button class="button" type="submit">Принять эту версию</button></form>{% else %}<a class="button" href="{% url 'login' %}?next={% url 'rules' %}">Войти и подтвердить</a>{% endif %}</section>
+{% endblock %}

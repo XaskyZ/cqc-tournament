@@ -1,0 +1,198 @@
+/* Compact content, with navigation kept prominent and easy to tap. */
+:root{--radius:10px}
+html{scroll-padding-top:80px}
+body{font-size:14px;line-height:1.5}
+h1{font-size:clamp(26px,3vw,38px);letter-spacing:-.035em}
+h2{font-size:22px}h3{font-size:18px}
+p+p{margin-top:8px}
+.shell{width:min(1320px,calc(100% - 48px))}
+.header-inner{min-height:66px;gap:24px}
+.brand{font-size:24px;gap:10px}.brand img{width:36px;height:36px}
+.main-nav{gap:4px}
+.main-nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;font-size:15px;font-weight:600;color:#c2d0c5;border-radius:6px;white-space:nowrap}
+.main-nav a[aria-current]{background:#233420;color:var(--accent)}
+.main-nav a[aria-current]:after{display:none}
+.main-nav a:hover{background:#1b2a20}
+.header-actions{gap:8px}
+.header-actions .button,.header-actions .text-button{font-size:14px;min-height:44px;padding:10px 14px;gap:8px}
+.header-actions .text-button{display:inline-flex;align-items:center;color:var(--text);border:1px solid #3c4b40;border-radius:6px}
+.main-content{padding-top:16px;padding-bottom:40px;min-height:60vh}
+.notice{padding:10px 14px;margin-bottom:14px;gap:10px;font-size:13px}
+.notice strong{font-size:13px}.notice-tag{font-size:10px}
+.button{min-height:38px;padding:9px 15px;font-size:13px;gap:12px;border-radius:6px}
+.button>span{font-size:16px}.button-small{min-height:34px;padding:7px 11px;font-size:12px;gap:8px}
+.link-arrow,.text-button{font-size:13px}.microcopy{font-size:12px;line-height:1.5;margin-top:9px}
+.eyebrow{margin-bottom:8px;letter-spacing:1.4px}
+.page-heading{padding:16px 0 20px;max-width:1000px}
+.page-heading h1{font-size:clamp(26px,3vw,36px);margin-bottom:8px}
+.page-heading>p{font-size:14px;line-height:1.5;max-width:800px}
+.page-heading>.button{margin-top:12px}
+.hero{min-height:0;grid-template-columns:1.5fr .7fr;gap:24px;padding:16px 0 26px}
+.hero-copy{padding:8px 0}.hero-edition{margin:10px 0;font-size:10px}
+.hero h1{font-size:clamp(32px,3.5vw,48px);line-height:1.08;letter-spacing:-.04em}
+.hero-description{font-size:14px;line-height:1.5;margin-top:14px;max-width:540px}
+.hero-actions{margin-top:16px;gap:8px}.hero-date{margin-top:16px;gap:10px}
+.hero-art{width:250px;max-width:100%;justify-self:end}
+.hero-art .hero-emblem{width:140px}.art-label{letter-spacing:1.3px}
+.date-icon{width:32px;height:34px;font-size:13px}
+.fact{padding:16px 20px}.fact-label{margin-bottom:7px;font-size:12px}
+.fact>strong{font-size:27px;letter-spacing:-.7px}.fact>strong>span{font-size:15px}
+.fact small{margin-top:6px;font-size:11px}
+.section{margin-top:36px}.section-heading{gap:16px;margin-bottom:16px}
+.section-heading h2{font-size:24px}.section-heading .eyebrow{margin-bottom:6px}
+.panel{padding:18px}.panel h2,.panel-title h2,.account-access .panel-title h2{font-size:19px;margin-bottom:12px}
+.panel h3{font-size:17px;margin-bottom:8px}.panel>p{font-size:13px}
+.panel-title{gap:12px;margin-bottom:12px}.panel-title h2,.panel-title h3{margin-bottom:0}
+.panel-title .eyebrow{margin-bottom:6px}.panel-title p{margin-top:6px}
+.format-grid,.cards-grid,.two-columns{gap:14px}.form-layout{gap:18px}.stack{gap:14px}
+.format-main{padding:20px}.format-main h3{font-size:25px;margin:10px 0 12px}
+.format-main p{line-height:1.6}.format-tags{margin-top:14px}.format-tags span{font-size:10px;padding:4px 8px}
+.detail-list{margin:6px 0 0}.detail-list>div{padding:10px 0;font-size:13px;gap:12px}
+.steps-grid{gap:22px}.step{padding-top:14px}.step h3{font-size:18px;margin:12px 0 8px}
+.step p{font-size:13px;line-height:1.6}.section-split{gap:30px}
+.section-split>div>p{margin-top:12px}.rules{font-size:13px}.rules .detail-list{margin-top:14px}
+.toolbar{padding:12px 0;margin-bottom:14px;gap:12px}
+.empty-state{padding:30px 18px;margin:6px 0}.empty-state h2{font-size:24px;margin:10px 0}
+.empty-state .button{margin-top:14px}
+.auth-layout{padding:20px 0;gap:42px}.auth-layout h1{font-size:34px}
+.auth-intro{padding-top:12px}.auth-intro>p{line-height:1.5;margin-top:14px}
+.auth-note{padding-top:14px;margin-top:22px;gap:14px}.auth-panel>p{margin-bottom:16px}
+hr{margin:16px 0}
+.team-card-top{margin-bottom:12px}.team-card h2{font-size:20px;margin-bottom:8px}
+.match-card{padding:12px}.match-meta{font-size:11px;margin-bottom:8px;min-height:20px;letter-spacing:0}
+.match-meta .status{font-size:10px}.match-team{font-size:13px;padding:7px 9px;min-height:34px}
+.bracket-round>h2{padding:10px 0;margin-bottom:10px}
+.payment-confirmed,.payment-waiting{padding:12px 0}.payment-confirmed h3{margin-top:12px}
+.payment-confirmed p,.payment-waiting p{line-height:1.5}
+.field{margin-bottom:14px}.field label{font-size:13px;margin-bottom:6px}
+.field input:not([type='checkbox']):not([type='radio']),.field select,.field textarea,.reject-details input{min-height:38px;padding:8px 11px;font-size:14px}
+.field-checkbox{gap:9px}.field-checkbox label{font-size:12px;line-height:1.5;margin-bottom:0}
+.form-errors{padding:10px 12px;margin:10px 0 14px}
+.roster-list{gap:8px}.roster-row{padding:12px 16px;gap:16px}
+.roster-identity{gap:12px}.roster-identity h2{font-size:16px;margin-bottom:4px}
+.roster-identity .muted{font-size:12px}.player-number{font-size:13px}
+.roster-statuses{gap:14px;min-width:245px}.roster-link{min-width:130px;gap:5px}
+.roster-link .link-arrow{font-size:12px}.roster-link .text-button{font-size:12px}
+.roster-heading{margin-top:20px}.roster-public{margin-top:12px}
+.roster-public li{padding:8px 0;font-size:13px}.roster-public .muted{font-size:12px}
+.invite-panel,.account-access,.leave-team-panel{margin-bottom:16px}
+.invite-link-field{margin:12px 0}.invite-link-field input{padding:9px 11px;font-size:13px}
+.invite-actions{gap:8px}.submit-team-panel{margin-top:16px}.submit-team-panel form{margin-top:12px}
+.submission-checklist{margin-top:12px;font-size:13px;line-height:1.6}
+.manual-player-panel{margin-top:14px}.manual-player-panel>p{margin:12px 0}
+.manual-player-panel summary,.leave-team-panel summary{font-size:13px}
+.team-registration-entry{margin:14px 0}.account-profile-link,.account-return{margin-top:12px}
+.account-access>.muted{font-size:13px;line-height:1.5}
+.account-access .panel-title .eyebrow{display:none}
+.game-editor-intro{margin-bottom:14px}.game-id-fields{gap:12px}.game-id-fields .field{margin-bottom:12px}
+.game-lookup-button{margin-bottom:14px}.found-account{padding:14px;margin-bottom:14px}
+.found-account h3{font-size:21px;margin-bottom:8px}.found-account .eyebrow{margin-bottom:7px}
+.game-editor-feedback{margin-top:12px;line-height:1.5}.game-account-source{margin:12px 0}
+.game-account-locked{margin-top:12px}.game-account-actions{margin-top:14px}
+.telegram-auth-layout{padding:10px 0;gap:36px}.telegram-auth-layout .page-heading{padding-top:16px}
+.telegram-auth-layout .page-heading h1{font-size:34px}
+.telegram-auth-panel{padding:20px}.telegram-panel-title{gap:10px;margin-bottom:16px}
+.telegram-panel-title h2{font-size:20px}.telegram-entry{padding:14px}
+.telegram-entry-heading{gap:10px}.telegram-entry-heading h3{font-size:16px!important;margin-bottom:6px!important}
+.telegram-entry-heading p{font-size:13px;line-height:1.5}.telegram-entry .button-full{margin-top:12px}
+.telegram-steps>li{padding:0 0 16px 30px}.telegram-steps p{line-height:1.5}
+.telegram-steps .button{margin-top:10px;padding:9px 13px}
+.browser-code{font-size:25px;padding:9px 13px;margin-top:10px;letter-spacing:6px}
+.telegram-status{padding:10px 12px;font-size:12px}.telegram-bottom-actions{margin-top:12px}
+.telegram-bottom-actions .text-button{font-size:13px}
+.telegram-auth-footnote{padding-top:14px;margin-top:16px;font-size:12px}
+.telegram-identity{padding:12px;margin:12px 0}.telegram-ready-heading{margin-top:14px!important}
+.auth-divider{margin:16px 0}.instruction-list{line-height:1.6}.instruction-list li+li{margin-top:8px}
+.payment-amount{font-size:34px;margin:14px 0}.payment-actions{gap:8px}
+.payment-review-row{padding:14px 18px}.team-controls{margin-top:14px;gap:8px}
+.table-scroll th,.table-scroll td{padding:10px 12px}.table-scroll td{font-size:13px}
+.setup-status{padding:12px 16px;margin-bottom:16px}.audit-row{padding:12px 0}
+.site-footer{padding:22px 0}.footer-inner{gap:16px}
+
+@media(min-width:761px){
+  .account-access:has(>.account-profile-link){display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;align-items:center}
+  .account-access:has(>.account-profile-link)>.panel-title{grid-column:1;margin:0}
+  .account-access:has(>.account-profile-link)>.muted{grid-column:1;margin:0}
+  .account-access>.account-profile-link{grid-column:2;grid-row:1 / 3;margin:0}
+}
+@media(max-width:1050px){
+  .header-inner{gap:12px}.main-nav a{padding:10px;font-size:14px}
+  .hero-art{width:210px}.roster-link{margin-left:0;flex-basis:auto}
+  .telegram-auth-layout{gap:24px}
+}
+@media(max-width:760px){
+  .shell{width:calc(100% - 28px)}
+  .header-inner{padding-top:8px;gap:0;min-height:0;justify-content:space-between}
+  .brand{font-size:22px}.brand img{width:32px;height:32px}.brand-sub{font-size:8px;letter-spacing:1.5px;margin-top:5px}
+  .header-actions{gap:6px}.header-actions .button,.header-actions .text-button{padding:9px 10px;font-size:14px;min-height:44px}
+  .main-nav{display:flex;order:3;flex-basis:100%;margin:6px 0;gap:3px;justify-content:space-between}
+  .main-nav a{flex:1 1 auto;min-height:44px;padding:10px 7px;font-size:14px;line-height:1.25}
+  .main-content{padding-top:12px;padding-bottom:28px}
+  .hero{display:block;min-height:0;padding:8px 0 20px}.hero-art{display:none}
+  .hero-copy{padding:0}.hero h1{font-size:32px}.hero-edition{margin:8px 0}
+  .hero-description{font-size:14px;margin-top:12px}.hero-actions{margin-top:14px}
+  .hero-actions .button{font-size:13px;padding:10px 14px;gap:10px}
+  .hero-date{margin-top:14px}.hero .eyebrow{margin-bottom:8px}
+  .page-heading{padding:12px 0 16px}.page-heading h1{font-size:27px;margin-bottom:7px}
+  .page-heading>p{font-size:14px;line-height:1.5}
+  .panel,.telegram-auth-panel{padding:15px}.panel h2,.panel-title h2,.account-access .panel-title h2{font-size:18px}
+  .notice{padding:10px 12px;font-size:13px}.notice strong{font-size:13px}
+  .notice>.button{margin-top:0}.eyebrow{font-size:10px}
+  .section{margin-top:26px}.section-heading{margin-bottom:13px;gap:12px}.section-heading h2{font-size:22px}
+  .fact,.dashboard-facts .fact{padding:14px}.fact-label,.dashboard-facts .fact-label{font-size:12px;margin-bottom:6px}
+  .fact>strong,.dashboard-facts .fact>strong{font-size:25px}.fact small{font-size:11px;margin-top:5px}
+  .format-grid,.form-layout,.two-columns,.section-split{gap:14px}.format-main h3{font-size:23px}
+  .steps-grid{gap:16px}.step h3{margin:8px 0 6px}.step p{line-height:1.5}
+  .button{min-height:42px;padding:10px 13px}.button-small{min-height:38px}
+  .field input:not([type='checkbox']):not([type='radio']),.field select,.field textarea{font-size:16px;min-height:42px;padding:8px 10px}
+  .game-id-fields input{font-size:16px!important}
+  .field label,.field-checkbox label{font-size:13px}.field{margin-bottom:12px}
+  .auth-layout,.telegram-auth-layout{gap:14px;padding:8px 0}
+  .auth-layout h1,.telegram-auth-layout .page-heading h1{font-size:28px}
+  .telegram-auth-layout .page-heading{padding:8px 0}.telegram-auth-layout .page-heading p{font-size:14px}
+  .telegram-entry-heading p,.telegram-steps p{font-size:13px}.telegram-entry-heading h3{font-size:16px!important}
+  .telegram-steps .button{min-height:42px;font-size:13px}
+  .roster-row{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:12px 14px}
+  .roster-identity{gap:10px}.roster-identity h2{font-size:17px;margin-bottom:3px}
+  .roster-identity .muted{font-size:12px}.roster-statuses{gap:14px;min-width:0;margin:0}
+  .roster-link{flex-direction:row;flex-wrap:wrap;justify-content:start;gap:10px 16px;margin:0;min-width:0}
+  .roster-link .link-arrow,.roster-remove summary{font-size:13px;min-height:32px;align-items:center}
+  .invite-actions{flex-direction:row;align-items:center;gap:8px}.invite-actions .button{width:auto;flex:1 1 auto}
+  .invite-link-field input{font-size:13px;padding:9px 10px}
+  .submit-team-panel .button{width:auto;font-size:13px;max-width:100%}
+  .manual-player-panel summary{font-size:13px}.roster-heading{margin-top:18px}
+  .account-access>.muted{font-size:13px}.account-access .panel-title{gap:8px;margin-bottom:8px}
+  .account-profile-link{margin-top:10px}.account-access-description{margin-bottom:12px}
+  .payment-actions .button{font-size:13px;padding:10px 12px}.payment-amount{font-size:32px}
+  .team-controls .button{font-size:13px;min-height:40px}
+  .footer-inner{gap:10px}.site-footer{padding:20px 0}
+}
+@media(max-width:360px){
+  .main-nav{gap:0;min-width:0}
+  .main-nav a{padding-left:3px;padding-right:3px;font-size:14px}
+}
+
+/* Explicit button outlines and a persistent, reversible demo notice. */
+.main-nav{gap:6px}
+.main-nav a{border:1px solid #586e5d;background:#111c16;font-size:16px;min-height:48px;padding:11px 16px}
+.main-nav a:hover{border-color:#9ab77c;background:#213222}
+.main-nav a[aria-current]{border-color:var(--accent);background:#293c22;color:#d3f39e}
+.header-actions .button,.header-actions .text-button{font-size:15px;min-height:48px;border-color:#586e5d}
+.demo-banner{border:1px solid var(--line);border-radius:8px;background:#17221b;color:#c5d5c7;margin-bottom:14px;font-size:13px}
+.demo-banner>summary{display:flex;align-items:center;gap:9px;min-height:44px;padding:10px 14px;cursor:pointer;list-style:none;line-height:1.4}
+.demo-banner>summary::-webkit-details-marker{display:none}
+.demo-banner>summary>strong{color:var(--text);font-size:13px}
+.demo-banner-toggle{margin-left:auto;color:var(--accent);font-size:12px;white-space:nowrap}
+.demo-banner-body{padding:0 14px 12px;line-height:1.5}
+.demo-banner-body>strong{color:var(--text)}
+.demo-banner .demo-expand-label{display:none}
+.demo-banner:not([open]) .demo-expand-label{display:inline}
+.demo-banner:not([open]) .demo-collapse-label{display:none}
+@media(max-width:760px){
+  .main-nav a{font-size:15px;padding:11px 5px;min-height:48px}
+  .header-actions .button,.header-actions .text-button{font-size:15px;padding:10px;min-height:48px}
+}
+@media(max-width:360px){
+  .main-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%}
+  .main-nav a{font-size:15px;padding:10px 8px}
+}

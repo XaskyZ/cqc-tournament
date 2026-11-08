@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Уведомления{% endblock %}
+{% block content %}
+<div class="section-heading"><div><span class="eyebrow">ЛИЧНЫЙ КАБИНЕТ</span><h1>Уведомления</h1><p class="muted">Непрочитанных: {{ unread_count }}</p></div><a class="button button-small button-quiet" href="{% url 'captain' %}">В кабинет</a></div>
+{% for item in notification_page %}
+<article class="panel notification-item">
+  <div class="notification-title"><h2>{{ item.title }}</h2><time class="microcopy">{{ item.created_at|date:'d.m.Y H:i' }}</time></div>
+  {% if item.body %}<p>{{ item.body|linebreaksbr }}</p>{% endif %}
+  <div class="notification-actions"><a class="button button-small button-quiet" href="{{ item.path }}">Открыть</a>
+  {% if not item.read_at %}<form method="post" action="{% url 'notification_read' item.pk %}">{% csrf_token %}<button class="button button-small button-quiet" type="submit">Отметить прочитанным</button></form>{% else %}<span class="microcopy">Прочитано</span>{% endif %}</div>
+</article>
+{% empty %}<div class="panel"><h2>Пока нет уведомлений</h2><p class="muted">Здесь появятся изменения заявки и сообщения о ваших матчах.</p></div>{% endfor %}
+{% if notification_page.has_other_pages %}<nav class="actions" aria-label="Страницы уведомлений">{% if notification_page.has_previous %}<a class="button button-secondary" href="?page={{ notification_page.previous_page_number }}">Назад</a>{% endif %}<span>{{ notification_page.number }} / {{ notification_page.paginator.num_pages }}</span>{% if notification_page.has_next %}<a class="button button-secondary" href="?page={{ notification_page.next_page_number }}">Далее</a>{% endif %}</nav>{% endif %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block title %}Замена участника{% endblock %}{% block content %}
+<header class="page-heading"><span class="eyebrow">ОРГАНИЗАТОР / СОСТАВ</span><h1>Освободить место участника</h1><p>{{ player.nickname }} · {{ player.team.name }}</p></header>
+<section class="panel"><p>Игрок будет исключён из действующего состава, но его личная страница и вся история платежей сохранятся. Допуск команды сбросится: капитан добавит нового игрока и подаст состав заново.</p><p>Платёж прежнего игрока не передаётся замене и не считается автоматически возвращённым. Новый участник получает свой отдельный взнос.</p>
+<dl class="detail-list"><div><dt>Статус прежнего взноса</dt><dd>{{ player.payment.get_status_display }}</dd></div><div><dt>Сумма</dt><dd>{{ player.payment.amount }} ₸</dd></div></dl>
+{% if player.active %}<form method="post">{% csrf_token %}{% include 'arena/partials/fields.html' %}<button class="button button-danger" type="submit">Вывести из состава</button></form>{% else %}<div class="notice">Участник уже выведен {{ player.withdrawn_at|date:'d.m.Y H:i' }}. {{ player.withdrawal_reason }}</div>{% endif %}
+<a class="link-arrow" href="{% url 'organizer' %}">Вернуться к командам ↗</a></section>{% endblock %}

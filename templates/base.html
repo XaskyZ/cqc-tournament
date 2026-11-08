@@ -1,0 +1,15 @@
+{% load static %}<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1110"><meta name="description" content="Турнир CQC по Mobile Legends: Bang Bang. Команды, расписание, турнирная сетка и регистрация."><title>{% block title %}{{ tournament.title|default:'CQC Tournament' }}{% endblock %} · CQC</title><link rel="icon" href="{% static 'arena/organization-logo.jpg' %}"><link rel="stylesheet" href="{% static 'arena/app.css' %}"><link rel="stylesheet" href="{% static 'arena/compact.css' %}?v=20261108-ui2"><link rel="stylesheet" href="{% static 'arena/navigation.css' %}?v=20261108-nav1"><script src="{% static 'arena/app.js' %}?v=20261108-ui2" defer></script><link rel="stylesheet" href="{% static 'arena/match.css' %}?v=20261108-match1"><script src="{% static 'arena/match.js' %}?v=20261108-match1" defer></script></head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+{% include 'arena/partials/navigation.html' %}
+<main id="main" class="shell main-content">
+{% if live_status_url %}<div hidden data-live-status-url="{{ live_status_url }}" data-live-status-version="{{ live_status_version }}"></div>{% endif %}
+{% if demo_mode %}<details class="demo-banner" data-demo-banner open><summary><span class="status-dot" aria-hidden="true"></span><strong>Тестовый режим</strong><span class="demo-banner-toggle" aria-hidden="true"><span class="demo-collapse-label">Свернуть −</span><span class="demo-expand-label">Развернуть +</span></span></summary><div class="demo-banner-body">{% if registration_ready %}<strong>Регистрация открыта.</strong> {% endif %}Команды, взносы и результаты тестовые. Деньги переводить не нужно.</div></details>{% elif tournament and not tournament.terms_confirmed %}<div class="notice notice-draft"><span class="status-dot"></span><div><strong>Турнир готовится к старту</strong><span>Условия предварительные. Регистрация откроется после подтверждения организатором.</span></div><span class="notice-tag">ПОДГОТОВКА</span></div>{% endif %}
+{% if messages %}<div class="messages" role="status">{% for message in messages %}<div class="notice {% if message.tags %}notice-{{ message.tags }}{% endif %}">{{ message }}</div>{% endfor %}</div>{% endif %}
+{% block content %}{% endblock %}
+{% if user.is_authenticated and tournament and request.path != '/rules/' %}<p class="microcopy"><a href="{% url 'rules' %}">Правила и условия участия</a> · Перед подачей заявки и взноса нужно принять текущую версию.</p>{% endif %}
+</main>
+<footer class="site-footer"><div class="shell footer-inner"><div><a class="footer-brand" href="{% url 'home' %}">CQC<span> / </span>TOURNAMENT</a><p>Одна команда. Общая цель.</p></div><div class="footer-meta"><span>{{ tournament.game|default:'Mobile Legends: Bang Bang' }}</span><span>{% if demo_mode %}Тестовый режим · без денежных переводов{% elif tournament.terms_confirmed %}Условия турнира подтверждены{% else %}Условия турнира уточняются{% endif %}</span></div></div></footer>
+</body></html>

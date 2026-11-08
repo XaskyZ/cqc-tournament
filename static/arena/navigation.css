@@ -1,0 +1,60 @@
+/* The header is an independent component; content density is unchanged. */
+.tournament-header{
+  background:linear-gradient(180deg,#131d17,#0d1511);
+  border-bottom:1px solid #2b3b30;
+}
+.navigation-bar{
+  width:min(1320px,calc(100% - 48px));margin:0 auto;
+  min-height:78px;display:flex;align-items:center;gap:32px;
+}
+.navigation-brand{display:inline-flex;align-items:center;gap:11px;flex:none;text-decoration:none;color:#edf3ec;min-height:48px}
+.navigation-brand img{width:40px;height:40px;border-radius:10px;border:1px solid #34482e;object-fit:contain}
+.navigation-wordmark{font-size:27px;font-weight:800;letter-spacing:-1px;line-height:1}
+.navigation-wordmark>span{display:block;margin-top:7px;color:#9db599;font-size:8px;font-weight:600;letter-spacing:2px;line-height:1}
+.navigation-sections{display:flex;align-items:stretch;justify-content:center;align-self:stretch;gap:8px;margin:0 auto;min-width:0}
+.navigation-link{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;padding:0 16px;min-height:48px;color:#adbdaf;font-size:16px;font-weight:600;text-decoration:none;white-space:nowrap;transition:color .15s,background .15s}
+.navigation-link:after{content:"";position:absolute;bottom:-1px;height:3px;border-radius:3px 3px 0 0;left:16px;right:16px;background:transparent}
+.navigation-link:hover{color:#e8f2df;background:#b3d48e07}
+.navigation-link[aria-current="page"]{color:#cef394;background:linear-gradient(0deg,#b4dc7610,transparent 70%)}
+.navigation-link[aria-current="page"]:after{background:#c0ed74;box-shadow:0 -3px 15px #a4dc5e22}
+.navigation-icon{display:block;flex:0 0 20px;width:20px;height:20px}
+.navigation-link>.navigation-icon{opacity:.8}
+.navigation-label-small{display:none}
+.navigation-account{display:flex;align-items:center;gap:12px;flex:none}
+.navigation-login,.navigation-profile,.navigation-logout{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:10px 16px;border-radius:24px;font-size:14px;font-weight:600;line-height:1.3;white-space:nowrap;text-decoration:none;transition:background .15s,color .15s}
+.navigation-login{background:#c0ed74;border:1px solid #c0ed74;color:#17230d}
+.navigation-login:hover{background:#d3f79b;border-color:#d3f79b}
+.navigation-profile{border:1px solid #3a5040;background:#1c2c20;color:#deedd3}
+.navigation-profile:hover,.navigation-profile[aria-current="page"]{border-color:#719155;background:#273d26}
+.navigation-logout-form{margin:0}
+.navigation-logout{background:transparent;border:1px solid transparent;padding:10px 8px;color:#b4c2b5;cursor:pointer}
+.navigation-logout:hover{color:#f6c5b5;background:#39251d80}
+.navigation-link:focus-visible,.navigation-brand:focus-visible,.navigation-login:focus-visible,.navigation-profile:focus-visible,.navigation-logout:focus-visible{outline:2px solid #c0ed74;outline-offset:3px}
+@media(max-width:1100px){
+  .navigation-bar{gap:16px}
+  .navigation-sections{gap:0}
+  .navigation-link{padding:0 12px;font-size:15px;gap:7px}
+  .navigation-link:after{left:12px;right:12px}
+  .navigation-account{gap:5px}.navigation-login,.navigation-profile{padding:10px 12px}
+}
+@media(max-width:900px){
+  .navigation-bar{width:calc(100% - 28px);flex-wrap:wrap;gap:0;min-height:0;padding-top:8px}
+  .navigation-brand{gap:9px;min-height:48px}.navigation-brand img{width:36px;height:36px}
+  .navigation-wordmark{font-size:24px}.navigation-wordmark>span{font-size:8px;letter-spacing:1.5px;margin-top:6px}
+  .navigation-account{margin-left:auto;gap:5px}
+  .navigation-sections{order:3;flex:0 0 100%;width:100%;margin:6px 0 0;gap:0;justify-content:space-between}
+  .navigation-link{flex:1 1 auto;min-height:48px;padding:0 10px;font-size:15px}
+  .navigation-link:after{left:10px;right:10px;height:2px}
+  .navigation-link>.navigation-icon{display:none}
+  .navigation-label-wide{display:none}.navigation-label-small{display:inline}
+}
+@media(max-width:380px){
+  .navigation-brand{gap:7px}.navigation-brand img{width:32px;height:32px}
+  .navigation-wordmark{font-size:22px}.navigation-wordmark>span{font-size:7px;letter-spacing:1.2px}
+  .navigation-account{gap:2px}.navigation-login,.navigation-profile{padding:10px 10px;font-size:14px;gap:6px}
+  .navigation-profile>.navigation-icon{display:none}
+  .navigation-logout{padding:10px 6px;font-size:14px;gap:5px}
+  .navigation-logout>.navigation-icon{width:17px;height:17px;flex-basis:17px}
+  .navigation-link{padding:0 8px;font-size:15px}
+  .navigation-link:after{left:8px;right:8px}
+}

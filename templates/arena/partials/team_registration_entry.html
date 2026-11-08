@@ -1,0 +1,4 @@
+<div class="team-registration-entry">
+  <a class="button" href="{% url 'register' %}">Создать команду <span aria-hidden="true">↗</span></a>
+  {% if not registration_ready %}<p class="microcopy">Собирать состав можно уже сейчас. Готовую команду капитан подаст на турнир отдельно.</p>{% endif %}
+</div>
